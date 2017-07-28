@@ -114,9 +114,10 @@ int main(){ //Driver function
 			printScore(head);
 			cout << "YOU WIN! Thanks for playing!" << endl;
 			cout << "Goodbye!" << endl;
+			return 1;
 		}
 		if((!player1.isDead()) && current->CityEnemy.isDead()){ //If yoou kill the enemy
-				head = addScore(head, current->CityEnemy.getMoves(), current->vertex, current->CityEnemy.getName()); 
+				head = addScore(head, current->CityEnemy.getMoves(), current->vertex, current->CityEnemy.getName());
 				complete(current);
 				cout << "Choose a City to go to: " << endl;
 				cout << "1. " << current->edge1->vertex << endl;
@@ -159,7 +160,7 @@ int main(){ //Driver function
 		}
 		system("clear");
 	}
-	
+
 	if(gameOver){
 		cout << "GoodBye!" << endl;
 	}
@@ -219,7 +220,7 @@ bool checkIfAllDead(Graph* a){ //Checks if you killed all the enemies
 	if(a->edge4->CityEnemy.isDead()){
 		five = true;
 	}
-	
+
 	if(one && two && three && four && five){
 		return true;
 	}else{
@@ -247,7 +248,7 @@ Score* addScore(Score* head, int Emoves, string cName, string eName){ //Adds the
 		newScore->enemyName = eName;
 		newScore->city = cName;
 	}
-	
+
 	return head;
 };
 
